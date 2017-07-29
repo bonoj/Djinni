@@ -86,6 +86,8 @@ Java_me_bonoj_thejni_MainActivity_getSizeFieldFromLamp(
 
     int size = -1;
 
+    jobject copiedObj = copyObj(obj);
+
     // Get the passed object's class
     jclass  cls = env->GetObjectClass(obj);
 

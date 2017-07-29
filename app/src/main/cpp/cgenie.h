@@ -16,4 +16,14 @@ int performGenieOperations(int a) {
     return a + 77;
 }
 
+jobject copyObj(jobject obj) {
+
+    
+
+
+
+
+    return obj;
+}
+
 #endif //THEJNI_CGENIE_H
