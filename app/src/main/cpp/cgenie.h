@@ -17,11 +17,16 @@ int performGenieOperations(int a) {
 }
 
 jobject copyObj(jobject obj) {
+    return obj;
+}
 
-    
+jobject createMeshDataObject(JNIEnv *env, jint param) {
+    jclass cls = env->FindClass("me/bonoj/thejni/data/MeshData");
+    jmethodID  methodId = env->GetMethodID(cls, "<init>", "(I)V");
 
+    jobject obj = env->NewObject(cls, methodId, param);
 
-
+    __android_log_print(ANDROID_LOG_INFO, APPNAME, "Returning new MeshData object");
 
     return obj;
 }

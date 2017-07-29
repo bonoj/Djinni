@@ -88,6 +88,9 @@ Java_me_bonoj_thejni_MainActivity_getSizeFieldFromLamp(
 
     jobject copiedObj = copyObj(obj);
 
+    jint facetParam = 10;
+    jobject createdMeshDataObj = createMeshDataObject(env, 10);
+
     // Get the passed object's class
     jclass  cls = env->GetObjectClass(obj);
 
