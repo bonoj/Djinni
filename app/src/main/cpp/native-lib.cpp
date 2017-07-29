@@ -1,8 +1,8 @@
 #include <jni.h>
 #include <string>
-#include <android/log.h>
 #include "cgenie.h"
 #include "cifrit.h"
+#include <android/log.h>
 
 #define APPNAME "DJINNI"
 
