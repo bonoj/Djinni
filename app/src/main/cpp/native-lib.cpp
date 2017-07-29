@@ -1,6 +1,7 @@
 #include <jni.h>
 #include <string>
 #include <android/log.h>
+#include "cgenie.h"
 
 #define APPNAME "DJINNI"
 
@@ -94,5 +95,8 @@ Java_me_bonoj_thejni_MainActivity_getSizeFieldFromLamp(
 
     size = env->GetIntField (obj, fieldId);
 
-    return size;
+    int sizeModifiedByGenie = performGenieOperations(size);
+
+    return sizeModifiedByGenie;
 }
+
