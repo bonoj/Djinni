@@ -3,6 +3,8 @@ package me.bonoj.thejni
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import me.bonoj.thejni.data.Lamp
+import me.bonoj.thejni.data.MeshData
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         val stuffFromJNI = stringFromJNI() + "\n" + anotherStringFromJNI() + "\n" + intFromJNI()
 
-        sample_text.text = stuffFromJNI
+        val lamp = Lamp(2, 5, 1)
+        val meshData = MeshData(7);
+
+        val vertexCoords = getMemberFieldFromNative(meshData)
+
+
+        sample_text.text = vertexCoords.toString()
     }
 
     /**
@@ -24,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     external fun stringFromJNI(): String
     external fun anotherStringFromJNI(): String
     external fun intFromJNI(): Int
+
+    external fun getMemberFieldFromNative(obj: MeshData): Float
 
     companion object {
 
