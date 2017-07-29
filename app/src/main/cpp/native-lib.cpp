@@ -1,5 +1,8 @@
 #include <jni.h>
 #include <string>
+#include <android/log.h>
+
+#define APPNAME "DJINNI"
 
 extern "C"
 JNIEXPORT jstring
@@ -31,29 +34,6 @@ Java_me_bonoj_thejni_MainActivity_intFromJNI(JNIEnv *env) {
     return 5;
 }
 
-//extern "C"
-//JNIEXPORT jint
-//
-//JNICALL
-//Java_me_bonoj_thejni_MainActivity_getMemberFieldFromNative(
-//        JNIEnv *env,
-//        jobject callingObject,
-//        jobject obj) {
-//
-//    int size = -1;
-//
-//    // Get the passed object's class
-//    jclass  cls = env->GetObjectClass(obj);
-//
-//    // Get the desired fieldId
-//    jfieldID fieldId = env->GetFieldID(cls, "size", "I");
-//
-//    size = (int) env->GetObjectField (obj, fieldId);
-//
-////    size = (int)jSizeVal;
-//
-//    return size;
-//}
 extern "C"
 JNIEXPORT
 jfloat
@@ -91,4 +71,30 @@ Java_me_bonoj_thejni_MainActivity_getMemberFieldFromNative(
     env->ReleaseFloatArrayElements(*fArray, data, 0);
 
     return result;
+}
+
+extern "C"
+JNIEXPORT jint
+
+JNICALL
+Java_me_bonoj_thejni_MainActivity_getSizeFieldFromLamp(
+        JNIEnv *env,
+        jobject callingObject,
+        jobject obj) {
+
+    int size = -1;
+
+    // Get the passed object's class
+    jclass  cls = env->GetObjectClass(obj);
+
+    // Get the desired fieldId
+    jfieldID fieldId = env->GetFieldID(cls, "size", "I");
+
+    __android_log_print(ANDROID_LOG_VERBOSE, APPNAME, "Logging from C++", 1);
+
+    //jobject sizeObject = env->GetObjectField (obj, fieldId);
+
+//    size = (int)jSizeVal;
+
+    return size;
 }
