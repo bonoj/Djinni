@@ -13,12 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Example of a call to a native method
-
-        val stuffFromJNI = stringFromJNI() + "\n" + anotherStringFromJNI() + "\n" + intFromJNI()
-
-        Log.i("DJINNI", stuffFromJNI)
-
         val meshData = MeshData(7)
         val vertexCoords = getMemberFieldFromNative(meshData)
 
@@ -30,7 +24,15 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("DJINNI", lampSize.toString())
 
-        sample_text.text = vertexCoords.toString()
+        val stuffFromJNI = stringFromJNI() + "\n" +
+                anotherStringFromJNI() + "\n" +
+                intFromJNI() + "\n" +
+                vertexCoords.toString() + "\n" +
+                lampSize.toString()
+
+        Log.i("DJINNI", stuffFromJNI)
+
+        sample_text.text = stuffFromJNI
     }
 
     /**

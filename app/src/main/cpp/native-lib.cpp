@@ -90,11 +90,9 @@ Java_me_bonoj_thejni_MainActivity_getSizeFieldFromLamp(
     // Get the desired fieldId
     jfieldID fieldId = env->GetFieldID(cls, "size", "I");
 
-    __android_log_print(ANDROID_LOG_VERBOSE, APPNAME, "Logging from C++", 1);
+    __android_log_print(ANDROID_LOG_INFO, APPNAME, "Logging from C++");
 
-    //jobject sizeObject = env->GetObjectField (obj, fieldId);
-
-//    size = (int)jSizeVal;
+    size = env->GetIntField (obj, fieldId);
 
     return size;
 }
